@@ -18,7 +18,7 @@ const char* mqtt_server = "167.205.7.19"; //server mqtt
 const char* mqtt_user = "/workshopmitra:workshopmitra"; //user mqtt
 const char* mqtt_pass = "passwordnyaqwerty"; //password mqtt
 const char* CL = "IoT-Local-1"; //nama alat
-const char* mqtt_pub_topic = "Status"; //topik dari data input
+const char* mqtt_pub_topic = "Log"; //topik dari data input
 String statusDevice[4] = {"0", "0", "0", "0"};
 int relay1 = D1 ;
 int relay2 = D2 ;
@@ -173,7 +173,7 @@ void reconnect() {
     // Attempt to connect
     if (client.connect(CL, mqtt_user, mqtt_pass)) {
       Serial.println("connected");
-      client.subscribe("Received"); //mengambil data dari antrian received
+      client.subscribe("Aktuator"); //mengambil data dari antrian received
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
